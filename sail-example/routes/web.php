@@ -15,9 +15,11 @@ use App\Http\Controllers\PostsController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// 既存トップページコメントアウト
+//Route::get('/', function () {
+//    /return view('welcome');
+//});
+Route::get('/',[PostsController::class,'index']);
 
 /* aboutページ */
 Route::get('/about', function () {

@@ -13,6 +13,15 @@ use App\Models\Post;
 
 class PostsController extends Controller
 {
+    public function index()
+    {
+        // DBから全権をとてくる
+        $posts = Post::all();
+
+        // ビューに渡す
+        return view('posts.index', ['posts' => $posts]);
+    }
+
     //
     public function show($id)
     {
