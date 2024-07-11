@@ -17,9 +17,15 @@ class PostsController extends Controller
     {
         // DBから全権をとてくる
         $posts = Post::all();
+        // オブジェクトが空かどうかを確認
+        if( $posts->isEmpty() ){
+            abort(404);
+            return view('errors.404');
+        }
 
         // ビューに渡す
         return view('posts.index', ['posts' => $posts]);
+        
     }
 
     //
